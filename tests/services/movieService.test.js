@@ -70,23 +70,20 @@ describe('Quando um filme é buscado', () => {
 		});
 
 		it('o retorno é um objeto', async () => {
-			const id = 9999;
 	
-			const response = await MoviesService.getById(id);
+			const response = await MoviesService.getById();
 	
 			expect(response).to.be.an('object');
 		});
 	
 		it('com um atributo de erro sendo true', async () => {
-			const id = 9999;
 
-			const response = await MoviesService.getById(id);
+			const response = await MoviesService.getById();
 	
 			expect(response).to.have.property('error', true);
 		});
 	});
 	describe('e ele é encontrado', () => {
-		const id = 9999;
 
 		const payloadMovie = {
 			id: 1,
@@ -105,13 +102,13 @@ describe('Quando um filme é buscado', () => {
 		});
 
 		it('a resposta é um objeto', async () => {
-			const response = await MoviesService.getById(id);
+			const response = await MoviesService.getById();
 			
 			expect(response).to.be.an('object');
 		});
 
 		it('com os atributos "id", "title", "directedBy" e "releaseYear"', async () => {
-			const response = await MoviesService.getById(id);
+			const response = await MoviesService.getById();
 
 			expect(response).to.have.all.keys('id', 'title', 'directedBy', 'releaseYear');
 		});
